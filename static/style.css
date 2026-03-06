@@ -1,0 +1,219 @@
+/* ===============================
+   Global reset & typography
+================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background: #000000;
+    color: #f3f4f6;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ===============================
+   Sticky glass navbar
+================================*/
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(255, 180, 70, 0.25);
+    padding: 10px 16px;
+
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Brand */
+.navbar-brand {
+    color: #ffb347 !important; /* orange */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+    color: #7CFF9B !important; /* green pop */
+}
+
+/* Nav links */
+.nav-link {
+    color: #e5e7eb !important;
+    margin-left: 6px;
+    position: relative;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.nav-link:hover {
+    transform: translateY(-3px);
+    color: #ffb347 !important;
+}
+
+/* Underline animation */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #ffb347, #7CFF9B);
+    transition: width 0.25s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ===============================
+   Headings
+================================*/
+h1 {
+    color: #f9fafb;
+    font-weight: 600;
+    margin: 28px 0;
+}
+
+/* ===============================
+   Search form
+================================*/
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+form input[type="text"] {
+    width: 320px;
+    background: #0b0b0b;
+    border: 1px solid #262626;
+    color: #f9fafb;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+form input[type="text"]::placeholder {
+    color: #9ca3af;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #7CFF9B;
+    transform: translateY(-2px);
+}
+
+/* Search button */
+#search-btn {
+    background: linear-gradient(135deg, #ffb347, #7CFF9B);
+    border: none;
+    color: #000;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#search-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(124, 255, 155, 0.35);
+}
+
+/* ===============================
+   News cards
+================================*/
+.news-article {
+    background: #0a0a0a;
+    border: 1px solid #1f1f1f;
+    border-radius: 14px;
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.news-article:hover {
+    transform: translateY(-6px);
+    border-color: #7CFF9B;
+    box-shadow: 0 16px 40px rgba(124, 255, 155, 0.2);
+}
+
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.news-article:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Card content */
+.card-body {
+    padding: 16px;
+}
+
+.card-title a {
+    color: #ffb347;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.25s ease;
+}
+
+.card-title a:hover {
+    color: #7CFF9B;
+}
+
+.card-text {
+    color: #d1d5db;
+    font-size: 0.95rem;
+}
+
+/* ===============================
+   Smooth fade-in on load
+================================*/
+.news-article {
+    animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   Responsive
+================================*/
+@media (max-width: 768px) {
+    form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    form input[type="text"] {
+        width: 100%;
+    }
+}
