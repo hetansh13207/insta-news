@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import requests
 from config import NEWS_API_KEY
 
-# comment
 
 app = Flask(__name__)
 
